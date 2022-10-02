@@ -13,7 +13,7 @@ lista_t *lista_crear()
 lista_t *lista_insertar(lista_t *lista, void *elemento)
 {
 	if (!lista)
-		return NULL;
+		return NULL; 
 	struct nodo *nuevo_nodo = malloc(sizeof(struct nodo));
 
 	if (!nuevo_nodo)
@@ -66,21 +66,31 @@ void *lista_buscar_elemento(lista_t *lista, int (*comparador)(void *, void *),
 
 void *lista_primero(lista_t *lista)
 {
+	if (!lista)
+		return NULL;
+
 	return lista->nodo_inicio;
 }
 
 void *lista_ultimo(lista_t *lista)
 {
+	if (!lista)
+		return NULL;
+
 	return lista->nodo_fin;
 }
 
 bool lista_vacia(lista_t *lista)
 {
+ 
 	return lista || lista->nodo_inicio != NULL;
 }
 
 size_t lista_tamanio(lista_t *lista)
 {
+	if (!lista)
+		return NULL;
+
 		return lista->cantidad;
 }
 
@@ -108,11 +118,17 @@ lista_iterador_t *lista_iterador_crear(lista_t *lista)
 
 bool lista_iterador_tiene_siguiente(lista_iterador_t *iterador)
 {
+	if (!lista)
+		return NULL;
+
 	return iterador->corriente->siguiente != NULL;
 }
 
 bool lista_iterador_avanzar(lista_iterador_t *iterador)
 {
+	if (!lista)
+		return NULL;
+		
 	return (iterador->corriente == iterador->corriente->siguiente);
 }
 
