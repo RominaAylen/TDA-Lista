@@ -1,6 +1,8 @@
 #include "cola.h"
 #include "lista.h"
 
+
+
 cola_t *cola_crear()
 {
 	return NULL;
@@ -28,10 +30,10 @@ size_t cola_tamanio(cola_t *cola)
 
 bool cola_vacia(cola_t *cola)
 {
-	return false;
+	return cola;
 }
 
 void cola_destruir(cola_t *cola)
 {
-
+	free(cola);
 }
